@@ -10,7 +10,7 @@ import Publi from "./../components/Publicacion";
 
 export default {
   components: {
-    Publi
-  }
+    Publi,
+  },
 };
 </script>

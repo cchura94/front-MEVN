@@ -1,33 +1,31 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">INCIO</router-link> |
-      <router-link to="/about">NOSOTROS</router-link> |
-      <router-link to="/carrito">CARRITO</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <Menu></Menu>
+
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+
+    <PiePagina></PiePagina>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import HelloWorld from "./components/HelloWorld";
+import Menu from "./components/navegacion/Menu";
+import PiePagina from "./components/navegacion/PiePagina";
 
-#nav {
-  padding: 30px;
-}
+export default {
+  name: "App",
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  components: {
+    HelloWorld,
+    Menu,
+    PiePagina,
+  },
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  data: () => ({
+    //
+  }),
+};
+</script>

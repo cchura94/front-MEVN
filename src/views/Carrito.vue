@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="prueba">
     <h1>{{ titulo }}</h1>
     <div class="productos">
       <table border="1">
@@ -14,7 +14,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="prod in productos" :key="prod">
+          <tr v-for="(prod, index) in productos" :key="index">
             <td>{{ prod.nombre }}</td>
             <td>{{ prod.precio }}</td>
             <td>{{ prod.cantidad }}</td>
@@ -28,7 +28,7 @@
       </table>
     </div>
     <div class="carrito">
-      <div class="caja" v-for="(c, index) in carrito" :key="c">
+      <div class="caja" v-for="(c, index) in carrito" :key="index">
         <h2>{{ c.nombre }}</h2>
         <p>{{ c.precio }}</p>
         <button @click="eliminarCarrito(index)">x</button>
