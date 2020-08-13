@@ -1,6 +1,7 @@
 <template>
   <v-app>
-    <Menu></Menu>
+    <Menu v-if="!$route.meta.requiereAuth"></Menu>
+    <MenuAdmin v-if="$route.meta.requiereAuth"></MenuAdmin>
 
     <v-main>
       <router-view></router-view>
@@ -14,7 +15,7 @@
 import HelloWorld from "./components/HelloWorld";
 import Menu from "./components/navegacion/Menu";
 import PiePagina from "./components/navegacion/PiePagina";
-
+import MenuAdmin from "./components/navegacion/admin/MenuAdmin";
 export default {
   name: "App",
 
@@ -22,10 +23,11 @@ export default {
     HelloWorld,
     Menu,
     PiePagina,
+    MenuAdmin
   },
 
   data: () => ({
     //
-  }),
+  })
 };
 </script>

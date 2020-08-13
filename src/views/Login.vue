@@ -47,37 +47,37 @@ import { urllogin } from "./../config/config";
 
 export default {
   props: {
-    source: String,
+    source: String
   },
   data() {
     return {
       usuario: {
         email: "",
-        password: "",
-      },
+        password: ""
+      }
     };
   },
   methods: {
     ingresar() {
       axios
         .post(urllogin, this.usuario)
-        .then((res) => {
+        .then(res => {
           console.log(res);
           if (!res.data.error) {
             Swal.fire("Correcto!", "Correcto", "success");
             //Guardar el token en LocalStorage
             localStorage.setItem("token", btoa(JSON.stringify(res.data)));
 
-            this.$router.push({ name: "About" });
+            this.$router.push({ name: "Admin" });
           } else {
             Swal.fire("Error!", res.data.mensaje, "error");
           }
         })
-        .catch((err) => {
+        .catch(err => {
           Swal.fire("Error!", "Error de servidor!", "danger");
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

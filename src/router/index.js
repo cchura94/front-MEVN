@@ -3,6 +3,13 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Carrito from '../views/Carrito.vue'
 import Login from '../views/Login.vue'
+import Admin from '../views/admin/Admin.vue'
+import Producto from '../views/admin/Producto.vue'
+import Cliente from '../views/admin/Cliente.vue'
+
+import {
+  authGuard
+} from './../guards/authGuard'
 
 Vue.use(VueRouter)
 
@@ -28,6 +35,34 @@ const routes = [{
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: Admin,
+    beforeEnter: authGuard,
+    meta: {
+      requiereAuth: true
+    },
+    children: [{
+        path: 'producto',
+        name: 'Producto',
+        component: Producto,
+        beforeEnter: authGuard,
+        meta: {
+          requiereAuth: true
+        },
+      },
+      {
+        path: 'cliente',
+        name: 'Cliente',
+        component: Cliente,
+        beforeEnter: authGuard,
+        meta: {
+          requiereAuth: true
+        },
+      }
+    ]
   }
 ]
 
