@@ -3,18 +3,22 @@ import {
     httpFile
 } from './api'
 
-export function listarProducto() {
-    http()
-        .get("/producto")
-        .then(respuesta => {
-            this.desserts = respuesta.data;
-        });
+export async function listarProducto() {
+    const respuesta = await http().get("/producto")
+    return respuesta.data;
+
 }
 
-export function guardarProducto(datos) {
-    http()
-        .post("/producto", datos)
-        .then(respuesta => {
-            return respuesta;
-        })
+/**
+ * Esta Función me permite guardar la informacion de producto
+ * @param {*} datos 
+ * @returns String
+ */
+export async function guardarProducto(datos) {
+    return await http().post("/producto", datos);
+
+}
+
+export async function eliminarProducto(item) {
+    return await http().delete(`/producto/${item._id}`);
 }

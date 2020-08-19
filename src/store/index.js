@@ -4,12 +4,16 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
+  state: { //data
+    url: "//localhost:3000",
+    numero: 10
   },
-  mutations: {
+  mutations: { // 
+    incrementar(state) {
+      return state.numero++;
+    }
   },
-  actions: {
+  actions: { //methods
   },
-  modules: {
-  }
+  modules: {}
 })

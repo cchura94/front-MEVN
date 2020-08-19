@@ -24,7 +24,7 @@
         <v-btn class="dark" @click="modificarCliente(cliente)">Modificar Cliente</v-btn>
       </v-col>
       <v-col cols="8">
-        <h1>Lista de Clientes</h1>
+        <h1>Lista de Clientes {{ $store.state.url }}</h1>
         <v-simple-table>
           <thead>
             <tr>
@@ -40,6 +40,7 @@
               <td>
                 <v-btn @click="editarCliente(clie, index)">editar</v-btn>
                 <v-btn @click="eliminarCliente(clie._id, index)">eliminar</v-btn>
+                <v-btn :to="`/admin/pedido/${clie._id}`">Nuevo Pedido</v-btn>
               </td>
             </tr>
           </tbody>
