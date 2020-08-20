@@ -7,6 +7,7 @@ import Admin from '../views/admin/Admin.vue'
 import Producto from '../views/admin/Producto.vue'
 import Cliente from '../views/admin/Cliente.vue'
 import Pedido from '../components/admin/Pedido.vue'
+import ListaPedido from '../views/admin/ListaPedido.vue'
 
 import {
   authGuard
@@ -63,6 +64,16 @@ const routes = [{
           requiereAuth: true
         },
       },
+      {
+        path: 'pedido',
+        name: 'ListaPedido',
+        component: ListaPedido,
+        beforeEnter: authGuard,
+        meta: {
+          requiereAuth: true
+        },
+      },
+
       {
         path: 'pedido/:id',
         name: 'Pedido',
